@@ -22,7 +22,7 @@ class CustomizedResponseEntityExceptionHandler {
         return ResponseEntity<ExceptionsResponse>(exceptionsResponse, HttpStatus.INTERNAL_SERVER_ERROR)
     }
 
-    @ExceptionHandler(UnsupportedMathOperationException::class)
+    @ExceptionHandler(UnsupportedOperationException::class)
     fun handlerBadRequestExceptions(ex: Exception, request: WebRequest):
             ResponseEntity<ExceptionsResponse> {
         val exceptionsResponse = ExceptionsResponse(

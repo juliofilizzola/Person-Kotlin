@@ -18,6 +18,12 @@ object ConvertNumber {
         return if (isNumeric(number)) number.toDouble() else 0.0
     }
 
+    fun convertToLong(strNumber: String?): Long {
+        if (strNumber.isNullOrBlank()) return 0
+        val number = strNumber.replace(",".toRegex(), ".")
+        return if (isNumeric(number)) number.toLong() else 0
+    }
+
     /**
     @param strNumber: value numeric
 

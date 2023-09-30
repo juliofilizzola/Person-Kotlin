@@ -1,7 +1,6 @@
 package br.com.person.controller
 
 import br.com.person.convert.ConvertNumber
-import br.com.person.exceptions.UnsupportedMathOperationException
 import br.com.person.model.Person
 import br.com.person.service.PersonService
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,9 +19,13 @@ class PersonController {
     @GetMapping(value = ["/{id}"])
     fun findOne(@PathVariable("id") id: String): Person {
         if (!ConvertNumber.isNumeric(id)) {
-            throw UnsupportedMathOperationException("Please set a number")
+            throw UnsupportedOperationException("Please set a number")
         }
         return personService.findOne(ConvertNumber.convertToLong(id))
     }
 
+    @GetMapping
+    fun findAll(): List<Person> {
+        return personService.findAll()
+    }
 }

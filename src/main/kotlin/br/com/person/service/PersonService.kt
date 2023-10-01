@@ -41,6 +41,19 @@ class PersonService {
         return persons
     }
 
+    fun update(id: Long, personDto: PersonDto): Person {
+        logger.info("Update person")
+        val p = Person()
+
+        p.address = personDto.address
+        p.gender = personDto.gender
+        p.firstName = personDto.firstName
+        p.lastName = personDto.lastName
+        p.id = id
+
+        return p
+    }
+
     fun delete(id: Long) : String {
         logger.info("delete person")
         return "person $id, deleted"

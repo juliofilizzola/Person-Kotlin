@@ -29,6 +29,7 @@ class PersonService {
 
     private fun mockPerson(i: Int) : Person {
         val person = Person()
+        logger.info("Mock person")
 
         person.id = counter.incrementAndGet()
         person.address = "Belo Horizonte - Minas Gerais - Brasil"

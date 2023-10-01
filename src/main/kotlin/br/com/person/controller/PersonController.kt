@@ -1,11 +1,16 @@
 package br.com.person.controller
 
 import br.com.person.convert.ConvertNumber
+import br.com.person.dto.PersonDto
 import br.com.person.model.Person
 import br.com.person.service.PersonService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -27,5 +32,23 @@ class PersonController {
     @GetMapping
     fun findAll(): List<Person> {
         return personService.findAll()
+    }
+
+    @PostMapping
+    fun create(@RequestBody personDto: PersonDto): Person {
+        return personService.create(personDto)
+    }
+
+    @PutMapping(value = ["/{id}"])
+    fun update(
+        @RequestBody personDto: PersonDto,
+        @PathVariable("id") id: Long,
+    ): Person {
+        return personService.update(id, personDto)
+    }
+
+    @DeleteMapping(value = ["/{id}"])
+    fun delete(@PathVariable("id") id: Long): String {
+        return personService.delete(id)
     }
 }

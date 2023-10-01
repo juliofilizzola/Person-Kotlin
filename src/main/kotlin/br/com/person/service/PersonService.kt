@@ -1,5 +1,6 @@
 package br.com.person.service
 
+import br.com.person.dto.PersonDto
 import br.com.person.model.Person
 import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicLong
@@ -10,6 +11,19 @@ class PersonService {
     private val counter: AtomicLong = AtomicLong()
 
     private val logger = Logger.getLogger(PersonService::class.java.name)
+
+    fun create(dataPerson: PersonDto): Person {
+        val person = Person()
+
+        person.address = dataPerson.address
+        person.gender = dataPerson.gender
+        person.firstName = dataPerson.firstName
+        person.lastName = dataPerson.lastName
+        person.id = counter.incrementAndGet()
+
+        return person
+    }
+
     fun findOne(id: Long) : Person {
         logger.info("find one person")
         return mockPerson(1)

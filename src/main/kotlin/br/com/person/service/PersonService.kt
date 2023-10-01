@@ -29,7 +29,7 @@ class PersonService {
         return mockPerson(1)
     }
 
-    fun  findAll(): List<Person> {
+    fun findAll(): List<Person> {
         logger.info("find all person")
         val persons: MutableList<Person> = ArrayList<Person>()
 
@@ -39,6 +39,11 @@ class PersonService {
         }
 
         return persons
+    }
+
+    fun delete(id: Long) : String {
+        logger.info("delete person")
+        return "person $id, deleted"
     }
 
     private fun mockPerson(i: Int) : Person {

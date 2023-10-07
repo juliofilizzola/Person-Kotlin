@@ -15,7 +15,7 @@ class PersonService {
     @Autowired
     private lateinit var repository: PersonRepository
 
-    private val counter: AtomicLong = AtomicLong()
+//    private val counter: AtomicLong = AtomicLong()
 
     private val logger = Logger.getLogger(PersonService::class.java.name)
 

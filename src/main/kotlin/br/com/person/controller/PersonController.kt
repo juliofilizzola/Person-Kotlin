@@ -48,7 +48,7 @@ class PersonController {
     }
 
     @DeleteMapping(value = ["/{id}"])
-    fun delete(@PathVariable("id") id: Long): String {
+    fun delete(@PathVariable("id") id: Long) {
         return personService.delete(id)
     }
 }

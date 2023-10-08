@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 		<kotlin.version>1.8.22</kotlin.version>
 		<dozer.version>6.4.1</dozer.version>
+		<modelMepper.version>3.0.0</modelMepper.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,6 +43,11 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelMepper.version}</version>
+		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>jakarta.xml.bind</groupId>-->
 <!--			<artifactId>jakarta.xml.bind-api</artifactId>-->
@@ -53,11 +59,7 @@
 <!--			<version>2.3.2</version>-->
 <!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.github.dozermapper</groupId>
-			<artifactId>dozer-core</artifactId>
-			<version>${dozer.version}</version>
-		</dependency>
+
 
 
 		<dependency>

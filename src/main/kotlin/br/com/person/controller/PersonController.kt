@@ -1,8 +1,8 @@
 package br.com.person.controller
 
 import br.com.person.convert.ConvertNumber
+import br.com.person.data.vo.v1.PersonVO
 import br.com.person.dto.PersonDto
-import br.com.person.model.Person
 import br.com.person.service.PersonService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -16,7 +16,7 @@ class PersonController {
     private lateinit var personService: PersonService
 
     @GetMapping(value = ["/{id}"])
-    fun findOne(@PathVariable("id") id: String): Person {
+    fun findOne(@PathVariable("id") id: String): PersonVO {
         if (!ConvertNumber.isNumeric(id)) {
             throw UnsupportedOperationException("Please set a number")
         }
@@ -24,13 +24,13 @@ class PersonController {
     }
 
     @GetMapping
-    fun findAll(): List<Person> {
+    fun findAll(): List<PersonVO> {
         return personService.findAll()
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody personDto: PersonDto): Person {
+    fun create(@RequestBody personDto: PersonDto): PersonVO {
         return personService.create(personDto)
     }
 
@@ -38,7 +38,7 @@ class PersonController {
     fun update(
         @RequestBody personDto: PersonDto,
         @PathVariable("id") id: Long,
-    ): Person {
+    ): PersonVO {
         return personService.update(id, personDto)
     }
 

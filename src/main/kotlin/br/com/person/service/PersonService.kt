@@ -43,7 +43,7 @@ class PersonService {
         person.address = dataPerson.address
         person.firstName = dataPerson.firstName
         person.lastName = dataPerson.lastName
-        person.birthDay = convertDate.stringToDate(dataPerson.birthDay)
+        person.birthDay = dataPerson.birthDay
         val entity: Person = repository.save(person)
         return dozerMapper.parseObject(entity, PersonV02::class.java)
     }
@@ -54,10 +54,22 @@ class PersonService {
         return dozerMapper.parseObject(entity, PersonVO::class.java)
     }
 
+    fun findOneV2(id: Long) : PersonV02 {
+        logger.info("find one person v2")
+        val entity: Person = repository.findById(id).orElseThrow { ResourceNotFoundException("Person Not Found!") }
+        return dozerMapper.parseObject(entity, PersonV02::class.java)
+    }
+
     fun findAll(): List<PersonVO> {
         logger.info("find all person")
         val entity: List<Person> = repository.findAll()
         return dozerMapper.parseListObjects(entity, PersonVO::class.java)
+    }
+
+    fun findAllV2(): List<PersonV02> {
+        logger.info("find all person V2")
+        val entity: List<Person> = repository.findAll()
+        return dozerMapper.parseListObjects(entity, PersonV02::class.java)
     }
 
     fun update(id: Long, personDto: PersonDto): PersonVO {
@@ -70,6 +82,19 @@ class PersonService {
         p.lastName = personDto.lastName
         val entity: Person = repository.save(p)
         return dozerMapper.parseObject(entity, PersonVO::class.java)
+    }
+
+    fun updateV2(id: Long, personDto: PersonV02): PersonV02 {
+        logger.info("Update person v2")
+        val p = repository.findById(id).orElseThrow { ResourceNotFoundException("Person Not Found!") }
+
+        p.address = personDto.address
+        p.gender = personDto.gender
+        p.firstName = personDto.firstName
+        p.lastName = personDto.lastName
+        p.birthDay = personDto.birthDay
+        val entity: Person = repository.save(p)
+        return dozerMapper.parseObject(entity, PersonV02::class.java)
     }
 
     fun delete(id: Long) {

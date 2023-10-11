@@ -1,6 +1,5 @@
 package br.com.person.service
 
-import br.com.person.convert.ConvertDate
 import br.com.person.data.vo.v1.PersonVO
 import br.com.person.dto.PersonDto
 import br.com.person.data.vo.v2.PersonVO as PersonV02
@@ -19,7 +18,6 @@ class PersonService {
     private lateinit var repository: PersonRepository
 
     private var dozerMapper: DozerMapper = DozerMapper
-    private var convertDate: ConvertDate = ConvertDate()
 
 //    private val counter: AtomicLong = AtomicLong()
 

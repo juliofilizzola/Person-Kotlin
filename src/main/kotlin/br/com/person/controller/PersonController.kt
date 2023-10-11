@@ -2,7 +2,6 @@ package br.com.person.controller
 
 import br.com.person.convert.ConvertNumber
 import br.com.person.data.vo.v1.PersonVO
-import br.com.person.data.vo.v2.PersonVO as PersonV02
 import br.com.person.dto.PersonDto
 import br.com.person.service.PersonService
 import org.springframework.beans.factory.annotation.Autowired

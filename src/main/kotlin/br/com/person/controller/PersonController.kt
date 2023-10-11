@@ -35,13 +35,6 @@ class PersonController {
         return personService.create(personDto)
     }
 
-    @PostMapping("/v2")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun createV2(@RequestBody personDto: PersonV02): PersonV02 {
-        return personService.createV2(personDto)
-    }
-
-
     @PutMapping(value = ["/{id}"])
     fun update(
         @RequestBody personDto: PersonDto,

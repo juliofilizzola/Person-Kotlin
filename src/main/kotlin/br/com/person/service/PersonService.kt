@@ -2,6 +2,7 @@ package br.com.person.service
 
 import br.com.person.data.vo.v1.PersonVO
 import br.com.person.dto.PersonDto
+import br.com.person.data.vo.v2.PersonVO as PersonV02
 import br.com.person.exceptions.handler.ResourceNotFoundException
 import br.com.person.mapper.DozerMapper
 import br.com.person.model.Person
@@ -31,6 +32,18 @@ class PersonService {
         person.lastName = dataPerson.lastName
         val entity: Person = repository.save(person)
         return dozerMapper.parseObject(entity, PersonVO::class.java)
+    }
+
+    fun createV2(dataPerson: PersonV02): PersonV02 {
+        val person = Person()
+
+        person.gender = dataPerson.gender
+        person.address = dataPerson.address
+        person.firstName = dataPerson.firstName
+        person.lastName = dataPerson.lastName
+        person.birthDay = dataPerson.birthDay
+        val entity: Person = repository.save(person)
+        return dozerMapper.parseObject(entity, PersonV02::class.java)
     }
 
     fun findOne(id: Long) : PersonVO {

@@ -15,7 +15,7 @@ class PersonController {
     @Autowired
     private lateinit var personService: PersonService
 
-    @GetMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON])
+    @GetMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     fun findOne(@PathVariable("id") id: String): PersonVO {
         if (!ConvertNumber.isNumeric(id)) {
             throw UnsupportedOperationException("Please set a number")
@@ -23,18 +23,18 @@ class PersonController {
         return personService.findOne(ConvertNumber.convertToLong(id))
     }
 
-    @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON])
+    @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     fun findAll(): List<PersonVO> {
         return personService.findAll()
     }
 
-    @PostMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON])
+    @PostMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody personDto: PersonDto): PersonVO {
         return personService.create(personDto)
     }
 
-    @PutMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON])
+    @PutMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     fun update(
         @RequestBody personDto: PersonDto,
         @PathVariable("id") id: Long,
@@ -42,7 +42,7 @@ class PersonController {
         return personService.update(id, personDto)
     }
 
-    @DeleteMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON])
+    @DeleteMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(@PathVariable("id") id: Long) {
         return personService.delete(id)

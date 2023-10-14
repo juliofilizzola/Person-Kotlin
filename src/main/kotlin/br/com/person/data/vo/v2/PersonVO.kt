@@ -6,7 +6,7 @@ import org.springframework.hateoas.RepresentationModel
 import java.util.Date
 
 data class PersonVO(
-    var key: Long = 0,
+    var id: Long = 0,
     @field:JsonProperty("first-name")
     var firstName: String=  "",
 

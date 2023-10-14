@@ -1,6 +1,5 @@
 package br.com.person.controller
 
-import br.com.person.convert.ConvertNumber
 import br.com.person.data.vo.v2.PersonVO as PersonV02
 import br.com.person.service.PersonService
 import br.com.person.utils.format.MediaType

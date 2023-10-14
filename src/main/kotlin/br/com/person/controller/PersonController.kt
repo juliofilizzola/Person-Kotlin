@@ -26,7 +26,7 @@ class PersonController {
 
     @PostMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody personDto: PersonDto): PersonVO {
+    fun create(@RequestBody personDto: PersonVO): PersonVO {
         return personService.create(personDto)
     }
 

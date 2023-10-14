@@ -1,6 +1,5 @@
 package br.com.person.controller
 
-import br.com.person.convert.ConvertNumber
 import br.com.person.data.vo.v1.PersonVO
 import br.com.person.dto.PersonDto
 import br.com.person.service.PersonService
@@ -10,17 +9,14 @@ import org.springframework.web.bind.annotation.*
 import br.com.person.utils.format.MediaType
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/person/v1")
 class PersonController {
     @Autowired
     private lateinit var personService: PersonService
 
     @GetMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    fun findOne(@PathVariable("id") id: String): PersonVO {
-        if (!ConvertNumber.isNumeric(id)) {
-            throw UnsupportedOperationException("Please set a number")
-        }
-        return personService.findOne(ConvertNumber.convertToLong(id))
+    fun findOne(@PathVariable("id") id: Long): PersonVO {
+        return personService.findOne(id)
     }
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])

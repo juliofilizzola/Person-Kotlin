@@ -26,9 +26,9 @@ object ConvertNumber {
     Func valid string is number
      */
 
-      fun isNumeric(strNumber: String?): Boolean {
-            if (strNumber.isNullOrBlank()) return false
-            val number = strNumber.replace(",".toRegex(), ".")
-            return number.matches("""[-+]?[0-9]*\.?[0-9]+""".toRegex())
-      }
+  fun isNumeric(strNumber: String?): Boolean {
+        if (strNumber.isNullOrBlank()) return false
+        val number = strNumber.replace(",".toRegex(), ".")
+        return number.matches("""[-+]?[0-9]*\.?[0-9]+""".toRegex())
+  }
 }

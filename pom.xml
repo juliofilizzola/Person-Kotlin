@@ -15,7 +15,7 @@
 	<description>person</description>
 	<properties>
 		<java.version>17</java.version>
-		<kotlin.version>1.6.10</kotlin.version>
+		<kotlin.version>1.8.0</kotlin.version>
 		<dozer.version>6.4.1</dozer.version>
 		<modelMepper.version>3.0.0</modelMepper.version>
 	</properties>
@@ -78,7 +78,6 @@
 			<groupId>org.springframework.hateoas</groupId>
 			<artifactId>spring-hateoas</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

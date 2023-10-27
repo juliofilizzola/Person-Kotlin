@@ -70,7 +70,7 @@ class DozerMapperTest {
     fun parserVOListToEntityListTest() {
 
         val outputList: ArrayList<Person> =
-            dozerMapper.parseListObjects(inputObject!!.mockVOList(), Person::class.java)
+            dozerMapper.parseListObjects(inputObject!!.mockVOList(13), Person::class.java)
 
 
         val outputZero: Person = outputList[0]

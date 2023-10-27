@@ -23,9 +23,9 @@ class MockPerson {
         return persons
     }
 
-    fun mockVOList(): ArrayList<PersonVO> {
+    fun mockVOList(quantity: Int): ArrayList<PersonVO> {
         val persons: ArrayList<PersonVO> = ArrayList()
-        for (i in 0..13) {
+        for (i in 0..quantity) {
             persons.add(personUtils.mockVO(i))
         }
         return persons

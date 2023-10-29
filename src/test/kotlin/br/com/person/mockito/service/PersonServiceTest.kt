@@ -43,7 +43,7 @@ internal class PersonServiceTest {
 
     @Test
     fun findOne() {
-        val person = inputObj.mockEntity()
+        val person: Person = inputObj.mockEntity()
         person.id = 1L
         `when`(repo.findById(1)).thenReturn(Optional.of(person))
 

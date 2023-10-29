@@ -32,7 +32,7 @@ class PersonController {
 
     @PutMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
     fun update(
-        @RequestBody personDto: PersonDto,
+        @RequestBody personDto: PersonVO,
         @PathVariable("id") id: Long,
     ): PersonVO {
         return personService.update(id, personDto)

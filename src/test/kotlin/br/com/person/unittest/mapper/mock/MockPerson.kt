@@ -15,17 +15,17 @@ class MockPerson {
         return personUtils.mockVO(0)
     }
 
-    fun mockEntityList(): ArrayList<Person> {
+    fun mockEntityList(quantity: Int): ArrayList<Person> {
         val persons: ArrayList<Person> = ArrayList<Person>()
-        for (i in 0..13) {
+        for (i in 0..quantity) {
             persons.add(personUtils.mockPerson(i))
         }
         return persons
     }
 
-    fun mockVOList(): ArrayList<PersonVO> {
+    fun mockVOList(quantity: Int): ArrayList<PersonVO> {
         val persons: ArrayList<PersonVO> = ArrayList()
-        for (i in 0..13) {
+        for (i in 0..quantity) {
             persons.add(personUtils.mockVO(i))
         }
         return persons

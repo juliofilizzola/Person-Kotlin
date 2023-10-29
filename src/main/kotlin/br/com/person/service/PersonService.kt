@@ -96,7 +96,7 @@ class PersonService {
         return vos
     }
 
-    fun update(id: Long, personDto: PersonDto): PersonVO {
+    fun update(id: Long, personDto: PersonVO): PersonVO {
         logger.info("Update person")
         val p = repository.findById(id).orElseThrow { ResourceNotFoundException("Person Not Found!") }
 

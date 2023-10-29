@@ -13,9 +13,9 @@ class PersonUtils {
         logger.info("Mock person")
 
         person.id = i.toLong()
-        person.address = "Belo Horizonte - Minas Gerais - Brasil $i"
-        person.firstName = "Julio $i"
-        person.lastName = "Filizzola $i"
+        person.address = "address $i"
+        person.firstName = "First Name $i"
+        person.lastName = "Last Name $i"
         person.gender = if (i % 2 == 0) "M" else "F"
 
         return person
@@ -23,10 +23,10 @@ class PersonUtils {
 
     fun mockVO(number: Int): PersonVO {
         val person = PersonVO()
-        person.address = "Belo Horizonte - Minas Gerais - Brasil $number"
-        person.firstName = "Julio $number"
+        person.address = "address $number"
+        person.firstName = "First Name $number"
         person.gender = if (number % 2 == 0) "M" else "F"
-        person.lastName = "Filizzola $number"
+        person.lastName = "Last Name $number"
         return person
     }
 }

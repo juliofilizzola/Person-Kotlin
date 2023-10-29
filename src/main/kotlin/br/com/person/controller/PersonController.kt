@@ -1,15 +1,16 @@
 package br.com.person.controller
 
 import br.com.person.data.vo.v1.PersonVO
-import br.com.person.dto.PersonDto
 import br.com.person.service.PersonService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import br.com.person.utils.format.MediaType
+import io.swagger.v3.oas.annotations.tags.Tag
 
 @RestController
 @RequestMapping("/person/v1")
+@Tag(name = "People", description = "Endpoints for Managing People")
 class PersonController {
     @Autowired
     private lateinit var personService: PersonService

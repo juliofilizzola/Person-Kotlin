@@ -122,9 +122,30 @@ internal class PersonServiceTest {
 
     @Test
     fun update() {
+        val entity = inputObj.mockEntity()
+
+        val persisted = entity.copy()
+        persisted.id = 1
+
+        `when`(repo.findById(1)).thenReturn(Optional.of(entity))
+        `when`(repo.save(entity)).thenReturn(persisted)
+
+        val vo = inputObj.mockVO()
+        val result = service.update(1L, vo)
+
+        assertNotNull(result)
+        assertNotNull(result.id)
+        assertEquals(result.id, 1)
+        assertNotNull(result.address)
+        assertNotNull(result.gender)
+        assertNotNull(result.links)
+        assertTrue(result.links.toString().contains("</person/v1/1>"))
     }
 
     @Test
     fun delete() {
+        val entity = inputObj.mockEntity()
+        `when`(repo.findById(1)).thenReturn(Optional.of(entity))
+        service.delete(1)
     }
 }

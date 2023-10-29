@@ -22,9 +22,9 @@ class DozerMapperTest {
     @Test
     fun parseEntityToVOTest() {
         val output: PersonVO = dozerMapper.parseObject(inputObject!!.mockEntity(), PersonVO::class.java)
-        Assertions.assertEquals("Julio 0", output.firstName)
-        Assertions.assertEquals("Filizzola 0", output.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 0", output.address)
+        Assertions.assertEquals("First Name 0", output.firstName)
+        Assertions.assertEquals("Last Name 0", output.lastName)
+        Assertions.assertEquals("address 0", output.address)
         Assertions.assertEquals("M", output.gender)
     }
 
@@ -36,21 +36,21 @@ class DozerMapperTest {
         val outputZero: PersonVO = outputList[0]
 
 
-        Assertions.assertEquals("Julio 0", outputZero.firstName)
-        Assertions.assertEquals("Filizzola 0", outputZero.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 0", outputZero.address)
+        Assertions.assertEquals("First Name 0", outputZero.firstName)
+        Assertions.assertEquals("Last Name 0", outputZero.lastName)
+        Assertions.assertEquals("address 0", outputZero.address)
         Assertions.assertEquals("M", outputZero.gender)
 
         val outputSeven: PersonVO = outputList[7]
-        Assertions.assertEquals("Julio 7", outputSeven.firstName)
-        Assertions.assertEquals("Filizzola 7", outputSeven.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 7", outputSeven.address)
+        Assertions.assertEquals("First Name 7", outputSeven.firstName)
+        Assertions.assertEquals("Last Name 7", outputSeven.lastName)
+        Assertions.assertEquals("address 7", outputSeven.address)
         Assertions.assertEquals("F", outputSeven.gender)
 
         val outputTwelve: PersonVO = outputList[12]
-        Assertions.assertEquals("Julio 12", outputTwelve.firstName)
-        Assertions.assertEquals("Filizzola 12", outputTwelve.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 12", outputTwelve.address)
+        Assertions.assertEquals("First Name 12", outputTwelve.firstName)
+        Assertions.assertEquals("Last Name 12", outputTwelve.lastName)
+        Assertions.assertEquals("address 12", outputTwelve.address)
         Assertions.assertEquals("M", outputTwelve.gender)
     }
 
@@ -60,9 +60,9 @@ class DozerMapperTest {
         val output: Person = dozerMapper.parseObject(inputObject!!.mockVO(), Person::class.java)
 
         Assertions.assertEquals(0, output.id)
-        Assertions.assertEquals("Julio 0", output.firstName)
-        Assertions.assertEquals("Filizzola 0", output.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 0", output.address)
+        Assertions.assertEquals("First Name 0", output.firstName)
+        Assertions.assertEquals("Last Name 0", output.lastName)
+        Assertions.assertEquals("address 0", output.address)
         Assertions.assertEquals("M", output.gender)
     }
 
@@ -74,21 +74,21 @@ class DozerMapperTest {
 
 
         val outputZero: Person = outputList[0]
-        Assertions.assertEquals("Julio 0", outputZero.firstName)
-        Assertions.assertEquals("Filizzola 0", outputZero.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 0", outputZero.address)
+        Assertions.assertEquals("First Name 0", outputZero.firstName)
+        Assertions.assertEquals("Last Name 0", outputZero.lastName)
+        Assertions.assertEquals("address 0", outputZero.address)
         Assertions.assertEquals("M", outputZero.gender)
 
         val outputSeven: Person = outputList[7]
-        Assertions.assertEquals("Julio 7", outputSeven.firstName)
-        Assertions.assertEquals("Filizzola 7", outputSeven.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 7", outputSeven.address)
+        Assertions.assertEquals("First Name 7", outputSeven.firstName)
+        Assertions.assertEquals("Last Name 7", outputSeven.lastName)
+        Assertions.assertEquals("address 7", outputSeven.address)
         Assertions.assertEquals("F", outputSeven.gender)
 
         val outputTwelve: Person = outputList[12]
-        Assertions.assertEquals("Julio 12", outputTwelve.firstName)
-        Assertions.assertEquals("Filizzola 12", outputTwelve.lastName)
-        Assertions.assertEquals("Belo Horizonte - Minas Gerais - Brasil 12", outputTwelve.address)
+        Assertions.assertEquals("First Name 12", outputTwelve.firstName)
+        Assertions.assertEquals("Last Name 12", outputTwelve.lastName)
+        Assertions.assertEquals("address 12", outputTwelve.address)
         Assertions.assertEquals("M", outputTwelve.gender)
     }
 }

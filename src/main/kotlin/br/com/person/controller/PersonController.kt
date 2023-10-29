@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import br.com.person.utils.format.MediaType
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.ArraySchema
+import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.media.Schema
+import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 
 @RestController
@@ -16,11 +21,32 @@ class PersonController {
     private lateinit var personService: PersonService
 
     @GetMapping(value = ["/{id}"], produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
+
     fun findOne(@PathVariable("id") id: Long): PersonVO {
         return personService.findOne(id)
     }
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
+    @Operation(
+        summary = "Find All People",
+        description = "Find All People",
+        responses = [
+            ApiResponse(
+                description = "Success",
+                responseCode = "200",
+                content = [
+                    Content(array = ArraySchema(schema = Schema(implementation = PersonVO::class)))
+                ]
+            ),
+            ApiResponse(
+                description = "No Content",
+                responseCode = "204",
+                content = [
+                    Content(schema = Schema(implementation = Unit::class))
+                ]
+            )
+        ]
+    )
     fun findAll(): List<PersonVO> {
         return personService.findAll()
     }

@@ -33,10 +33,19 @@ internal class PersonServiceTest {
 
     @Test
     fun create() {
-    }
+        val person: Person = inputObj.mockEntity()
+        val persisted = person.copy()
+        persisted.id = 1L
+        `when`(repo.save(person)).thenReturn(persisted)
 
-    @Test
-    fun createV2() {
+        val vo = inputObj.mockVO()
+        val result = service.create(vo)
+
+        assertNotNull(result)
+        assertNotNull(result.id)
+        assertNotNull(result.links)
+
+        assertTrue(result.links.toString().contains("</person/v1/1>;rel=\"self\""))
     }
 
     @Test
@@ -113,10 +122,6 @@ internal class PersonServiceTest {
 
     @Test
     fun update() {
-    }
-
-    @Test
-    fun updateV2() {
     }
 
     @Test

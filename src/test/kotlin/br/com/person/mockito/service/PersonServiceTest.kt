@@ -1,6 +1,5 @@
 package br.com.person.mockito.service
 
-import br.com.person.data.vo.v1.PersonVO
 import br.com.person.model.Person
 import br.com.person.repository.PersonRepository
 import br.com.person.service.PersonService
@@ -16,7 +15,6 @@ import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
-import kotlin.collections.ArrayList
 
 @ExtendWith(MockitoExtension::class)
 internal class PersonServiceTest {
@@ -78,7 +76,12 @@ internal class PersonServiceTest {
         val persons = inputObj.mockEntityList(13)
 
        `when`(repo.findAll()).thenReturn(persons)
+
+
         val res = service.findAll()
+        assertNotNull(res)
+
+        assertEquals(14, res.size)
         val outputZero = res[0]
         assertNotNull(outputZero)
         assertNotNull(outputZero.id)
@@ -106,39 +109,6 @@ internal class PersonServiceTest {
         assertEquals(outputNine.gender, "F")
         assertNotNull(outputNine.address)
 
-    }
-
-    @Test
-    fun findAllV2() {
-        val persons: ArrayList<PersonVO> = inputObj.mockVOList(13)
-
-        val outputZero = persons[0]
-
-        assertNotNull(outputZero)
-        assertNotNull(outputZero.id)
-        assertNotNull(outputZero.address)
-        assertNotNull(outputZero.gender)
-        assertEquals(outputZero.gender, "M")
-        assertNotNull(outputZero.address)
-
-        val outputSeven = persons[7]
-
-        assertNotNull(outputSeven)
-        assertNotNull(outputSeven.id)
-        assertNotNull(outputSeven.address)
-        assertNotNull(outputSeven.gender)
-        assertEquals(outputSeven.gender, "F")
-        assertNotNull(outputSeven.address)
-
-
-        val outputNine = persons[9]
-
-        assertNotNull(outputNine)
-        assertNotNull(outputNine.id)
-        assertNotNull(outputNine.address)
-        assertNotNull(outputNine.gender)
-        assertEquals(outputNine.gender, "F")
-        assertNotNull(outputNine.address)
     }
 
     @Test
